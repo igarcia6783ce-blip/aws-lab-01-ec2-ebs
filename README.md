@@ -1,51 +1,68 @@
 # > Note: Commands and configuration verified during live AWS lab session using EC2 + EBS.
 
-## Overview 
-This hands-on AWS lab demonstrates
-launching an Ec2 instance, attaching and mounting an EBS volume, and configuring persistent  storage on Linux. 
+# AWS EC2 + EBS Persistent Storage Lab
+
+## Overview
+This hands-on AWS lab demonstrates launching an EC2 instance, attaching and mounting an EBS volume, and configuring persistent storage on Linux.
 
 ## Objectives
- > Lab performed in AWS console and Linux shell environment.
+- Launch EC2 instance in AWS
+- Create and attach EBS volume
+- Format and mount EBS volume
+- Configure persistent mounting using fstab
+- Verify persistent storage after reboot
 
-##Architecture 
-EC2 (Linux) attached EBS Volume 
-Mounted to /data- Persistent via fstab 
-## Steps Performed 
-### 1. Launching EC2 Instance 
--Amazon Linux instance  deployed 
--SSH access  configured 
--Key pair authentication used
-### 2. Create and attach EBS volume 
--New EBS volume created in same AZ
--Volume attached to EC2 instance 
-### 3. Format and Mount Volume 
+## Architecture
+EC2 (Linux) with attached EBS volume mounted to /data and persisted via fstab.
+
+## Steps Performed
+
+### 1. Launching EC2 Instance
+- Amazon Linux instance deployed
+- SSH access configured
+- Key pair authentication used
+
+### 2. Create and Attach EBS Volume
+- New EBS volume created in same Availability Zone
+- Volume attached to EC2 instance
+
+### 3. Format and Mount Volume
 Commands used:
 
-Isblk sudo mkfs-txfs/dev/xvdf sudo mkdir/data sudo mount /dev/xvdf/data
+```bash
+lsblk
+sudo mkfs -t xfs /dev/nvme1n1
+sudo mkdir /data
+sudo mount /dev/nvme1n1 /data
+```
 
-### 4. Configured Persistent Mount
+### 4. Configure Persistent Mount
+Commands used:
 
-sudo blkid sudo nano/ect/fstab
+```bash
+sudo blkid
+sudo nano /etc/fstab
+sudo mount -a
+```
 
-UUID entry added to fstab for automatic  mount.
+UUID entry added to /etc/fstab for automatic mount.
 
-### 5. Verification 
--Instance rebooted 
--Volume automatically Mounted
--Data persisted after reboot
+### 5. Verification
+- Instance rebooted
+- Volume automatically mounted
+- Data persisted after reboot
 
-## Skills Demonstrated 
--AWS EC2 provisioning 
--AWS EBS storage management 
--Linux disk administration 
--Filesystem mounting 
--Persistent storage  configuration 
--Cloud infrastructure  fundamentals 
+## Skills Demonstrated
+- AWS EC2 provisioning
+- AWS EBS storage management
+- Linux disk administration
+- Filesystem mounting
+- Persistent storage configuration
+- Cloud infrastructure fundamentals
 
-## Outcome 
-Successfully configured  persistent block storage on AWS EC2 using EBS and Linux fstab. 
+## Outcome
+Successfully configured persistent block storage on AWS EC2 using EBS and Linux fstab.
 
 ## Author
-Ivan Garcia 
+Ivan Garcia  
 Aspiring Cloud Engineer (AWS)
-
