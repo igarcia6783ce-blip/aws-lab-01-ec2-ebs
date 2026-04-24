@@ -49,7 +49,7 @@ sudo mount /dev/nvme1n1 /data
 - Cloud infrastructure fundamentals
 
 ## Outcome
-Successfully configured persistent block storage on AWS EC2 using EBS and Linux fstab.
+Successfully launched an EC2 instance, attached an EBS volume, and mounted it to the Linux filesystem.
 
 ## Author
 Ivan Garcia  
