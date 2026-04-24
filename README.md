@@ -40,18 +40,9 @@ sudo mkdir /data
 sudo mount /dev/nvme1n1 /data
 ```
 
-### 4. Configure Persistent Mount
-Commands used:
 
-```bash
-sudo blkid
-sudo nano /etc/fstab
-sudo mount -a
-```
 
-UUID entry added to /etc/fstab for automatic mount.
-
-### 5. Verification
+### 4. Verification
 - Instance rebooted
 - Volume automatically mounted
 - Data persisted after reboot
