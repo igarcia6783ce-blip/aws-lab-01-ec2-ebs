@@ -38,15 +38,14 @@ sudo mkdir /data
 sudo mount /dev/nvme1n1 /data
 ```
 
-
-
 ## Skills Demonstrated
 - AWS EC2 provisioning
 - AWS EBS storage management
 - Linux disk administration
 - Filesystem mounting
-- Persistent storage configuration
 - Cloud infrastructure fundamentals
+
+
 
 ## Outcome
 Successfully launched an EC2 instance, attached an EBS volume, and mounted it to the Linux filesystem.
