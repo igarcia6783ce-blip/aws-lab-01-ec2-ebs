@@ -12,9 +12,10 @@ In the next lab, persistent mounting using fstab will be configured to ensure st
 - Launch EC2 instance in AWS
 - Create and attach EBS volume
 - Format and mount EBS volume
-
+  
 ## Architecture
-EC2 (Linux) with attached EBS volume mounted to /data and persisted via fstab.
+EC2 (Linux) instance with an attached EBS volume mounted to /data
+
 
 ## Steps Performed
 
