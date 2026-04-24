@@ -1,9 +1,13 @@
 # > Note: Commands and configuration verified during live AWS lab session using EC2 + EBS.
 
-# AWS EC2 + EBS Persistent Storage Lab
+# AWS EC2 + EBS Basic Volume Setup (Lab 01)
 
 ## Overview
-This hands-on AWS lab demonstrates launching an EC2 instance, attaching and mounting an EBS volume, and configuring persistent storage on Linux.
+This project demonstrates how to launch an EC2 instance, attach an EBS volume, and configure basic storage by formatting and mounting the volume on Linux.
+
+## Next Steps
+In the next lab, persistent mounting using fstab will be configured to ensure storage remains available after reboot.
+
 
 ## Objectives
 - Launch EC2 instance in AWS
