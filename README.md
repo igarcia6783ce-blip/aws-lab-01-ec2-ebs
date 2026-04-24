@@ -8,13 +8,10 @@ This project demonstrates how to launch an EC2 instance, attach an EBS volume, a
 ## Next Steps
 In the next lab, persistent mounting using fstab will be configured to ensure storage remains available after reboot.
 
-
 ## Objectives
 - Launch EC2 instance in AWS
 - Create and attach EBS volume
 - Format and mount EBS volume
-- Configure persistent mounting using fstab
-- Verify persistent storage after reboot
 
 ## Architecture
 EC2 (Linux) with attached EBS volume mounted to /data and persisted via fstab.
@@ -41,11 +38,6 @@ sudo mount /dev/nvme1n1 /data
 ```
 
 
-
-### 4. Verification
-- Instance rebooted
-- Volume automatically mounted
-- Data persisted after reboot
 
 ## Skills Demonstrated
 - AWS EC2 provisioning
