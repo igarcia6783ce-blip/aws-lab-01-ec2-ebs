@@ -1,55 +1,61 @@
-# > Note: Commands and configuration verified during live AWS lab session using EC2 + EBS.
+# AWS EC2 + EBS Basic Volume Setup
 
-# AWS EC2 + EBS Basic Volume Setup (Lab 01)
+## Project Overview
+This project demonstrates how to attach an Amazon Elastic Block Store (EBS) volume to an Amazon EC2 Linux instance and mount it as usable storage inside the operating system.
 
-## Overview
-This project demonstrates how to launch an EC2 instance, attach an EBS volume, and configure basic storage by formatting and mounting the volume on Linux.
+The purpose of this lab was to understand how cloud block storage connects to a virtual server, how Linux identifies attached disks, and how a mounted volume becomes available through a directory such as `/data`.
 
-## Next Steps
-In the next lab, persistent mounting using fstab will be configured to ensure storage remains available after reboot.
+---
 
 ## Objectives
-- Launch EC2 instance in AWS
-- Create and attach EBS volume
-- Format and mount EBS volume
-  
+- Launch and access an Amazon EC2 Linux instance
+- Attach an additional Amazon EBS volume
+- Identify the attached block device using Linux commands
+- Create a mount point directory
+- Mount the EBS volume to `/data`
+- Validate that the volume is available to the operating system
+
+---
+
+## AWS Services Used
+- Amazon EC2
+- Amazon Elastic Block Store (EBS)
+- EC2 Instance Connect
+- Linux command line
+
+---
+
 ## Architecture
-EC2 (Linux) instance with an attached EBS volume mounted to /data
+Amazon EC2 Instance  
+→ Attached Amazon EBS Volume  
+→ Linux block device  
+→ Mounted to `/data`
 
+---
 
-## Steps Performed
-
-### 1. Launching EC2 Instance
-- Amazon Linux instance deployed
-- SSH access configured
-- Key pair authentication used
-
-### 2. Create and Attach EBS Volume
-- New EBS volume created in same Availability Zone
-- Volume attached to EC2 instance
-
-### 3. Format and Mount Volume
-Commands used:
-
-```bash
+## Commands Practiced
 lsblk
-sudo mkfs -t xfs /dev/nvme1n1
 sudo mkdir /data
-sudo mount /dev/nvme1n1 /data
-```
+sudo mount /dev/xvdf /data
+df -h
 
-## Skills Demonstrated
-- AWS EC2 provisioning
-- AWS EBS storage management
-- Linux disk administration
-- Filesystem mounting
-- Cloud infrastructure fundamentals
+---
 
+## What I Learned
+This lab helped me understand how AWS EBS volumes work as attachable block storage for EC2 instances. I practiced identifying storage devices in Linux, creating a mount directory, mounting a volume, and validating that the operating system could access the additional storage.
 
+---
 
 ## Outcome
-Successfully launched an EC2 instance, attached an EBS volume, and mounted it to the Linux filesystem.
+Successfully attached and mounted an Amazon EBS volume to an EC2 Linux instance, proving that additional cloud storage can be connected and made available inside the server through a Linux mount point.
+
+---
+
+## Next Step
+This foundational lab leads into persistent mounting with `/etc/fstab`, where the volume is configured to remount automatically after reboot.
+
+---
 
 ## Author
-Ivan Garcia  
-Aspiring Cloud Engineer (AWS)
+Ivan Garcia 
+Cloud Engineering / AWS Hands-On Portfolio Project
