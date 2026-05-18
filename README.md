@@ -52,7 +52,23 @@ Successfully attached and mounted an Amazon EBS volume to an EC2 Linux instance,
 ---
 
 ## Next Step
-This foundational lab leads into persistent mounting with `/etc/fstab`, where the volume is configured to remount automatically after reboot.
+
+## Persistence Validation
+
+The EBS volume was also configured for persistence by adding it to `/etc/fstab`. After rebooting the EC2 instance, the `/data` mount was tested again.
+
+During validation, the UUID-based entry showed a boot source issue, so the configuration was corrected using the working device path:
+
+```bash
+/dev/nvme1n1 /data xfs defaults,nofail 0 2
+
+The configuration was then validated successfully with:
+
+sudo findmnt --verify
+
+After reboot, the /data mount was available again and the test file was readable, confirming that the EBS volume persisted across reboots.
+
+
 
 ---
 
